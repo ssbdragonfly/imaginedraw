@@ -1,0 +1,29 @@
+.image-to-drawing {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.image-to-drawing form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.image-upload-area {
+  border: 2px dashed #ccc;
+  border-radius: 4px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.image-upload-area:hover {
+  background-color: #f0f0f0;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+}
