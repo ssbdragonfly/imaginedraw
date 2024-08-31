@@ -5,6 +5,7 @@ import LandingPage from './pages/LandingPage';
 import PromptToDrawing from './pages/PromptToDrawing';
 import ImageToDrawing from './pages/ImageToDrawing';
 import './App.css';
+import DrawingResult from './pages/DrawingResult';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/prompt-to-drawing" element={<PromptToDrawing />} />
           <Route path="/image-to-drawing" element={<ImageToDrawing />} />
+          <Route path="/drawing-result" element={<DrawingResult />} />
         </Routes>
       </div>
     </Router>

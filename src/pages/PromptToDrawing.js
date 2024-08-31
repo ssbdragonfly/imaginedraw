@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { searchImages } from '../api/PexelsApi';
 import './PromptToDrawing.css';
-
+import './PromptToDrawing.css';
 function PromptToDrawing() {
   const [prompt, setPrompt] = useState('');
   const [drawingBook, setDrawingBook] = useState([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     const images = await searchImages(prompt);
     const processedImages = await Promise.all(images.map(processImage));
     setDrawingBook(processedImages);
+    navigate('/drawing-result', { state: { images: processedImages, title: `Drawing Book for "${prompt}"` } });
     setLoading(false);
   };
 

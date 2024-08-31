@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ImageToDrawing.css';
 
 function ImageToDrawing() {
@@ -37,7 +38,8 @@ function ImageToDrawing() {
     };
     img.src = image;
   };
-
+  
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     if (image) {
