@@ -6,6 +6,8 @@ function ImageToDrawing() {
   const [image, setImage] = useState(null);
   const [processedImage, setProcessedImage] = useState(null);
   const canvasRef = useRef(null);
+  const navigate = useNavigate();
+
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -35,11 +37,11 @@ function ImageToDrawing() {
       
       ctx.putImageData(imageData, 0, 0);
       setProcessedImage(canvas.toDataURL());
+      navigate('/drawing-result', { state: { images: [canvas.toDataURL()], title: "Your Drawing Book" } });
     };
     img.src = image;
   };
   
-  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     if (image) {
@@ -71,12 +73,6 @@ function ImageToDrawing() {
           Generate Drawing Book
         </button>
       </form>
-      {processedImage && (
-        <div className="processed-image">
-          <h3>Processed Image</h3>
-          <img src={processedImage} alt="Processed" className="preview-image" />
-        </div>
-      )}
       <canvas ref={canvasRef} style={{ display: 'none' }} />
     </div>
   );

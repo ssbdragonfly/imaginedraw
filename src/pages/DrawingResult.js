@@ -20,7 +20,7 @@ function DrawingResult() {
         {images.map((image, index) => (
           <div key={index} className="image-container">
             <img src={image} alt={`Drawing ${index + 1}`} className="drawing-image" />
-            <button onClick={() => handleDownload(image, index)}>Download</button>
+            <button onClick={() => handleDownload(image, index)} className="download-button">Download</button>
           </div>
         ))}
       </div>
